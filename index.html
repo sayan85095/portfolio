@@ -1651,25 +1651,25 @@
     <canvas id="bg-canvas"></canvas>
     <div class="cyber-grid-bg"></div>
 
-    <!-- System Boot Loader Screen -->
+    <!-- Loader Screen -->
     <div id="boot-screen">
         <div class="boot-box">
             <div class="boot-header">
-                <span class="boot-title">// SAYAN.OS v3.2</span>
+                <span class="boot-title">Sayan Mukherjee | Portfolio</span>
                 <i class="fa-solid fa-microchip"></i>
             </div>
             <div class="boot-terminal" id="boot-terminal">
-                <div class="boot-line" id="bl1">&gt; INITIALIZING AI KERNEL MODULES... [OK]</div>
-                <div class="boot-line" id="bl2">&gt; LOADING OPENCV &amp; MEDIAPIPE ENGINES... [OK]</div>
-                <div class="boot-line" id="bl3">&gt; MOUNTING GEMINI &amp; OLLAMA LLM MODELS... [OK]</div>
-                <div class="boot-line" id="bl4">&gt; ESTABLISHING BRAINWARE NET MATRIX... [OK]</div>
-                <div class="boot-line" id="bl5">&gt; SYSTEM PROFILE: SAYAN MUKHERJEE READY.</div>
+                <div class="boot-line" id="bl1">&gt; Loading interactive environment... [OK]</div>
+                <div class="boot-line" id="bl2">&gt; Initializing Computer Vision &amp; AI modules... [OK]</div>
+                <div class="boot-line" id="bl3">&gt; Loading project assets &amp; demos... [OK]</div>
+                <div class="boot-line" id="bl4">&gt; Connecting 3D neural canvas... [OK]</div>
+                <div class="boot-line" id="bl5">&gt; Welcome to Sayan Mukherjee's Portfolio.</div>
             </div>
             <div class="boot-bar-container">
                 <div class="boot-bar" id="boot-bar"></div>
             </div>
             <div class="boot-status">
-                <span>SYSTEM STATUS: ONLINE</span>
+                <span>Status: Ready</span>
                 <span id="boot-pct">0%</span>
             </div>
         </div>
@@ -1679,7 +1679,7 @@
     <nav>
         <a href="#hero" class="nav-logo">
             <i class="fa-solid fa-brain" style="color:var(--neon-cyan)"></i>
-            SAYAN<span>//AI</span>
+            SAYAN<span>.AI</span>
         </a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
@@ -1691,10 +1691,10 @@
         </ul>
         <div class="nav-actions">
             <button class="cli-btn" onclick="openTerminalModal()" title="Open Interactive CLI Shell">
-                <i class="fa-solid fa-terminal"></i> CLI
+                <i class="fa-solid fa-terminal"></i> Terminal
             </button>
-            <button class="hr-quick-btn" onclick="openHrModal()" title="30-Second Executive HR Summary">
-                <i class="fa-solid fa-bolt"></i> HR QUICK VIEW
+            <button class="hr-quick-btn" onclick="openHrModal()" title="30-Second Executive Summary">
+                <i class="fa-solid fa-bolt"></i> Quick Summary
             </button>
             <button class="theme-toggle-btn" onclick="toggleTheme()">
                 <i class="fa-solid fa-moon" id="theme-icon"></i>
@@ -1706,16 +1706,16 @@
         </div>
     </nav>
 
-    <!-- Mobile Drawer Navigation -->
+    <!-- Mobile Navigation Drawer -->
     <div class="mobile-menu" id="mobile-menu">
-        <a href="#" onclick="toggleMobileMenu(); openHrModal();" style="color:var(--neon-pink); font-weight:bold;">⚡ HR Quick View</a>
-        <a href="#" onclick="toggleMobileMenu(); openTerminalModal();" style="color:var(--neon-cyan);">💻 Interactive CLI Shell</a>
-        <a href="#about" onclick="toggleMobileMenu()">// About</a>
-        <a href="#skills" onclick="toggleMobileMenu()">// Skills</a>
-        <a href="#projects" onclick="toggleMobileMenu()">// Projects</a>
-        <a href="#timeline" onclick="toggleMobileMenu()">// Education &amp; SIH</a>
-        <a href="#discussion" onclick="toggleMobileMenu()">// Guestbook</a>
-        <a href="#contact" onclick="toggleMobileMenu()">// Contact</a>
+        <a href="#" onclick="toggleMobileMenu(); openHrModal();" style="color:var(--neon-pink); font-weight:bold;">⚡ Quick Summary</a>
+        <a href="#" onclick="toggleMobileMenu(); openTerminalModal();" style="color:var(--neon-cyan);">💻 Terminal Shell</a>
+        <a href="#about" onclick="toggleMobileMenu()">About</a>
+        <a href="#skills" onclick="toggleMobileMenu()">Skills</a>
+        <a href="#projects" onclick="toggleMobileMenu()">Projects</a>
+        <a href="#timeline" onclick="toggleMobileMenu()">Education</a>
+        <a href="#discussion" onclick="toggleMobileMenu()">Guestbook</a>
+        <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
     </div>
 
     <!-- HERO SECTION -->
@@ -1764,14 +1764,14 @@
     <!-- ABOUT SECTION -->
     <section id="about">
         <div class="section-header">
-            <span class="section-subtitle">// PROFESSIONAL_PROFILE</span>
+            <span class="section-subtitle">PROFILE &amp; BACKGROUND</span>
             <h2 class="section-title">ABOUT ME</h2>
         </div>
 
         <div class="about-container">
-            <!-- Executive Summary & Bio -->
+            <!-- Summary & Bio -->
             <div class="glass-card about-main-card">
-                <div class="card-tag"><i class="fa-solid fa-user-gear"></i> // EXECUTIVE SUMMARY</div>
+                <div class="card-tag"><i class="fa-solid fa-user-gear"></i> OVERVIEW</div>
                 
                 <h3 class="about-headline">
                     Building Intelligent Systems with Computer Vision, Generative AI &amp; Full-Stack Architectures
@@ -1829,7 +1829,7 @@
     <!-- SKILLS MATRIX -->
     <section id="skills">
         <div class="section-header">
-            <span class="section-subtitle">// TECHNICAL.CAPABILITIES</span>
+            <span class="section-subtitle">CORE SKILLS &amp; TECH STACK</span>
             <h2 class="section-title">SKILLS &amp; TECHNOLOGIES</h2>
         </div>
 
@@ -1926,8 +1926,8 @@
     <!-- PROJECTS SECTION -->
     <section id="projects">
         <div class="section-header">
-            <span class="section-subtitle">// FEATURED_INNOVATIONS</span>
-            <h2 class="section-title">PROJECT ARCHIVE</h2>
+            <span class="section-subtitle">PORTFOLIO</span>
+            <h2 class="section-title">FEATURED PROJECTS</h2>
         </div>
 
         <div class="project-filters">
@@ -2057,7 +2057,7 @@
     <!-- EDUCATION & CERTIFICATIONS SECTION -->
     <section id="timeline">
         <div class="section-header">
-            <span class="section-subtitle">// ACADEMIC_&amp;_HONORS</span>
+            <span class="section-subtitle">ACADEMIC &amp; HONORS</span>
             <h2 class="section-title">EDUCATION &amp; CERTIFICATIONS</h2>
         </div>
 
@@ -2196,28 +2196,27 @@
         </div>
     </section>
 
-    <!-- DISCUSSION / GUESTBOOK ZONE -->
+    <!-- GUESTBOOK SECTION -->
     <section id="discussion">
         <div class="section-header">
-            <span class="section-subtitle">// PUBLIC_NETWORK_LOG</span>
+            <span class="section-subtitle">FEEDBACK &amp; MESSAGES</span>
             <h2 class="section-title">INTERACTIVE GUESTBOOK</h2>
         </div>
 
         <div class="discussion-box">
             <div class="discussion-form">
-                <label class="form-label">// LEAVE A MESSAGE OR FEEDBACK FOR SAYAN</label>
+                <label class="form-label">Leave a Message or Feedback</label>
                 <textarea class="discussion-textarea" id="guestbook-input" placeholder="Type your message, suggestion, or collaboration idea..."></textarea>
                 <button onclick="postGuestbookMessage()" class="btn-primary" style="align-self: flex-start;">
-                    <i class="fa-solid fa-paper-plane"></i> TRANSMIT MESSAGE
+                    <i class="fa-solid fa-paper-plane"></i> Send Message
                 </button>
             </div>
 
             <div class="posts-container" id="posts-container">
-                <!-- Initial default message -->
                 <div class="post-card">
                     <div>
                         <p class="post-text">👋 Welcome to Sayan's AI Portfolio! Feel free to drop feedback, collaboration requests, or tech queries here!</p>
-                        <span class="post-time">// SYSTEM BOT — Live Feed</span>
+                        <span class="post-time">System Message</span>
                     </div>
                 </div>
             </div>
@@ -2227,8 +2226,8 @@
     <!-- CONTACT SECTION -->
     <section id="contact">
         <div class="section-header">
-            <span class="section-subtitle">// ESTABLISH_COMMUNICATION</span>
-            <h2 class="section-title">GET IN TOUCH</h2>
+            <span class="section-subtitle">GET IN TOUCH</span>
+            <h2 class="section-title">CONTACT ME</h2>
         </div>
 
         <div class="contact-container">
@@ -2238,22 +2237,22 @@
                     <input type="hidden" name="subject" value="New Portfolio Contact from Sayan Site" />
 
                     <div class="form-group">
-                        <label class="form-label">// YOUR NAME</label>
+                        <label class="form-label">Your Name</label>
                         <input type="text" name="name" class="form-input" placeholder="e.g. Rahul Sharma" required />
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">// EMAIL ADDRESS</label>
+                        <label class="form-label">Email Address</label>
                         <input type="email" name="email" class="form-input" placeholder="name@domain.com" required />
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">// MESSAGE PAYLOAD</label>
+                        <label class="form-label">Your Message</label>
                         <textarea name="message" class="form-textarea" placeholder="Discuss an internship, project, or general inquiry..." required></textarea>
                     </div>
 
                     <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
-                        <i class="fa-solid fa-paper-plane"></i> TRANSMIT MESSAGE
+                        <i class="fa-solid fa-paper-plane"></i> Send Message
                     </button>
                     <p id="formStatus" style="margin-top: 1rem; font-family: var(--font-mono); font-size:0.85rem; color: var(--neon-cyan);"></p>
                 </form>
@@ -2264,7 +2263,7 @@
                     <div class="contact-item-left">
                         <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
                         <div>
-                            <span class="info-label">DIRECT EMAIL</span>
+                            <span class="info-label">EMAIL</span>
                             <span class="info-value">sayanmukherjee7464@gmail.com</span>
                         </div>
                     </div>
@@ -2275,7 +2274,7 @@
                     <div class="contact-item-left">
                         <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
                         <div>
-                            <span class="info-label">PHONE NUMBER</span>
+                            <span class="info-label">PHONE</span>
                             <span class="info-value">+91 8509546406</span>
                         </div>
                     </div>
@@ -2286,7 +2285,7 @@
                     <div class="contact-item-left">
                         <div class="contact-icon-box"><i class="fa-brands fa-github"></i></div>
                         <div>
-                            <span class="info-label">GITHUB PROFILE</span>
+                            <span class="info-label">GITHUB</span>
                             <span class="info-value">github.com/sayan85095</span>
                         </div>
                     </div>
@@ -2297,7 +2296,7 @@
                     <div class="contact-item-left">
                         <div class="contact-icon-box"><i class="fa-brands fa-linkedin"></i></div>
                         <div>
-                            <span class="info-label">LINKEDIN NETWORK</span>
+                            <span class="info-label">LINKEDIN</span>
                             <span class="info-value">linkedin.com/in/sayan-mukherjee-966311265</span>
                         </div>
                     </div>
@@ -2331,20 +2330,20 @@
                 <i class="fa-solid fa-envelope"></i>
             </a>
         </div>
-        <p>© 2026 SAYAN MUKHERJEE — COMPUTER SCIENCE (AI &amp; ML) PORTFOLIO SYSTEM</p>
-        <p style="margin-top: 0.5rem; opacity: 0.7;">Crafted with Vanilla JS, Modern CSS, Three.js &amp; Cyber Aesthetics.</p>
+        <p>© 2026 Sayan Mukherjee. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.7;">Designed &amp; Developed by Sayan Mukherjee using HTML, CSS, JavaScript &amp; Three.js.</p>
     </footer>
 
     <!-- AI ASSISTANT CHATBOT FLOATING WIDGET -->
     <div id="ai-chatbot-widget">
-        <button class="chatbot-toggle-btn" onclick="toggleChatbot()" title="Chat with Sayan's AI Assistant">
+        <button class="chatbot-toggle-btn" onclick="toggleChatbot()" title="Chat with Sayan's Assistant">
             <i class="fa-solid fa-robot"></i>
         </button>
 
         <div class="chatbot-modal" id="chatbot-modal">
             <div class="chatbot-header">
                 <div class="chatbot-title">
-                    <i class="fa-solid fa-brain"></i> SAYAN_AI ASSISTANT
+                    <i class="fa-solid fa-brain"></i> Sayan's AI Assistant
                 </div>
                 <button class="chatbot-close" onclick="toggleChatbot()"><i class="fa-solid fa-xmark"></i></button>
             </div>

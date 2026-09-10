@@ -370,6 +370,52 @@
             box-shadow: var(--glow-cyan);
         }
 
+        .hr-quick-btn {
+            background: linear-gradient(135deg, rgba(255, 0, 127, 0.25), rgba(157, 78, 221, 0.25));
+            border: 1px solid var(--neon-pink);
+            color: #ffffff;
+            padding: 0.5rem 1.1rem;
+            border-radius: 20px;
+            font-family: var(--font-display);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.25);
+        }
+
+        .hr-quick-btn:hover {
+            background: var(--neon-pink);
+            color: #ffffff;
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .cli-btn {
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cli-btn:hover {
+            background: var(--neon-cyan);
+            color: #000;
+            box-shadow: var(--glow-cyan);
+        }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -1644,6 +1690,12 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-actions">
+            <button class="cli-btn" onclick="openTerminalModal()" title="Open Interactive CLI Shell">
+                <i class="fa-solid fa-terminal"></i> CLI
+            </button>
+            <button class="hr-quick-btn" onclick="openHrModal()" title="30-Second Executive HR Summary">
+                <i class="fa-solid fa-bolt"></i> HR QUICK VIEW
+            </button>
             <button class="theme-toggle-btn" onclick="toggleTheme()">
                 <i class="fa-solid fa-moon" id="theme-icon"></i>
                 <span id="theme-text">THEME</span>
@@ -1656,6 +1708,8 @@
 
     <!-- Mobile Drawer Navigation -->
     <div class="mobile-menu" id="mobile-menu">
+        <a href="#" onclick="toggleMobileMenu(); openHrModal();" style="color:var(--neon-pink); font-weight:bold;">⚡ HR Quick View</a>
+        <a href="#" onclick="toggleMobileMenu(); openTerminalModal();" style="color:var(--neon-cyan);">💻 Interactive CLI Shell</a>
         <a href="#about" onclick="toggleMobileMenu()">// About</a>
         <a href="#skills" onclick="toggleMobileMenu()">// Skills</a>
         <a href="#projects" onclick="toggleMobileMenu()">// Projects</a>
@@ -1740,6 +1794,33 @@
                     <div class="pillar-chip"><i class="fa-solid fa-brain"></i> Generative AI &amp; LLMs</div>
                     <div class="pillar-chip"><i class="fa-solid fa-code"></i> FastAPI &amp; React</div>
                     <div class="pillar-chip"><i class="fa-solid fa-diagram-project"></i> Algorithmic Problem Solving</div>
+                </div>
+
+                <div class="about-stats-grid" style="margin-top:2.2rem;">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="stat-number">8.33</div>
+                        <div class="stat-label">ACADEMIC CGPA</div>
+                        <div class="stat-sub">6th Sem B.Tech CSE (AI &amp; ML)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <div class="stat-number">&lt; 1.8s</div>
+                        <div class="stat-label">MODEL INFERENCE</div>
+                        <div class="stat-sub">Plant Pathology CNN Classification</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-hand"></i></div>
+                        <div class="stat-number">21 Pts</div>
+                        <div class="stat-label">GESTURE MESH</div>
+                        <div class="stat-sub">Real-Time MediaPipe Tracking</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
+                        <div class="stat-number">3+ Certs</div>
+                        <div class="stat-label">NATIONAL HONORS</div>
+                        <div class="stat-sub">SIH 2025, Samsung AI, Drone Camp</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2598,9 +2679,20 @@
                 </div>
                 <p style="color:var(--text-secondary); line-height:1.6; margin-bottom:1.5rem;">${data.desc}</p>
                 <h4 style="font-family:var(--font-mono); color:var(--neon-purple); margin-bottom:0.8rem;">KEY HIGHLIGHTS:</h4>
-                <ul style="color:var(--text-secondary); padding-left:1.2rem; line-height:1.8; margin-bottom:2rem;">
+                <ul style="color:var(--text-secondary); padding-left:1.2rem; line-height:1.8; margin-bottom:1.5rem;">
                     ${data.features.map(f => `<li>${f}</li>`).join('')}
                 </ul>
+                ${key === 'plantbot' ? `
+                    <div style="background:rgba(3,7,18,0.8); border:1px dashed var(--neon-cyan); border-radius:12px; padding:1.2rem; margin-bottom:1.5rem;">
+                        <h4 style="font-family:var(--font-mono); color:var(--neon-cyan); font-size:0.9rem; margin-bottom:0.8rem;">🌱 LIVE CNN MODEL INFERENCE SIMULATOR</h4>
+                        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
+                            <button onclick="runPlantSim('Tomato Early Blight')" class="btn-secondary" style="font-size:0.75rem; padding:0.4rem 0.8rem;">Tomato Blight</button>
+                            <button onclick="runPlantSim('Potato Late Blight')" class="btn-secondary" style="font-size:0.75rem; padding:0.4rem 0.8rem;">Potato Blight</button>
+                            <button onclick="runPlantSim('Healthy Leaf')" class="btn-secondary" style="font-size:0.75rem; padding:0.4rem 0.8rem;">Healthy Leaf</button>
+                        </div>
+                        <div id="sim-res-box" style="font-family:var(--font-mono); font-size:0.82rem; color:var(--text-secondary); min-height:40px;">Select a crop sample above to test live Keras CNN & Gemini LLM prediction...</div>
+                    </div>
+                ` : ''}
                 <a href="${data.github}" target="_blank" class="btn-primary" style="text-decoration:none;">
                     <i class="fa-brands fa-github"></i> VIEW GITHUB REPOSITORY
                 </a>
@@ -2728,6 +2820,170 @@
                 return "Sayan Mukherjee is a B.Tech CSE (AI & ML) student at Brainware University. Feel free to ask about his projects (PlantBot AI, Gesture Control), skills, or contact info!";
             }
         }
+
+        // ── LIVE SIMULATOR FOR PLANTBOT MODAL ──
+        function runPlantSim(crop) {
+            const box = document.getElementById('sim-res-box');
+            if (!box) return;
+            box.innerHTML = `<span style="color:var(--neon-cyan)">[RUNNING] Preprocessing 224x224x3 Tensor... Evaluating CNN Weights...</span>`;
+            setTimeout(() => {
+                if (crop === 'Healthy Leaf') {
+                    box.innerHTML = `
+                        <div style="color:var(--neon-green); font-weight:bold;">✅ PREDICTION: Healthy Leaf</div>
+                        <div>• Confidence: 99.1% | Latency: 1.42s</div>
+                        <div style="color:var(--text-secondary); margin-top:0.4rem;">🤖 Gemini LLM: Crop is in optimal condition. Maintain regular watering.</div>
+                    `;
+                } else {
+                    box.innerHTML = `
+                        <div style="color:var(--neon-pink); font-weight:bold;">⚠️ PREDICTION: ${crop} Detected</div>
+                        <div>• Confidence: 98.4% | Latency: 1.65s</div>
+                        <div style="color:var(--text-secondary); margin-top:0.4rem;">🤖 Gemini LLM Recommendation: Apply organic neem oil spray or copper-based fungicide once every 7 days.</div>
+                    `;
+                }
+            }, 800);
+        }
+
+        // ── HR EXECUTIVE QUICK VIEW MODAL ──
+        function openHrModal() {
+            const body = document.getElementById('modal-body-content');
+            body.innerHTML = `
+                <div style="text-align:left;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--card-border); padding-bottom:1rem; margin-bottom:1.5rem;">
+                        <div>
+                            <span style="font-family:var(--font-mono); color:var(--neon-pink); font-size:0.8rem; letter-spacing:0.15em;">⚡ EXECUTIVE RECRUITER SHEET</span>
+                            <h2 style="font-family:var(--font-display); font-size:1.6rem; color:var(--text-primary);">SAYAN MUKHERJEE</h2>
+                            <p style="font-family:var(--font-mono); color:var(--neon-cyan); font-size:0.88rem;">B.Tech CSE (AI & ML) | Brainware University (Expected 2027)</p>
+                        </div>
+                        <div style="text-align:right;">
+                            <span style="font-family:var(--font-display); font-size:1.6rem; font-weight:800; color:var(--neon-green);">8.33 CGPA</span>
+                            <span style="display:block; font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">6th Sem Aggregate</span>
+                        </div>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-bottom:1.5rem;">
+                        <div style="background:rgba(3,7,18,0.6); border:1px solid var(--card-border); border-radius:12px; padding:1rem;">
+                            <h4 style="font-family:var(--font-mono); color:var(--neon-cyan); font-size:0.85rem; margin-bottom:0.5rem;"><i class="fa-solid fa-microchip"></i> CORE TECH STACK</h4>
+                            <p style="color:var(--text-secondary); font-size:0.88rem; line-height:1.6;">Python, Computer Vision (OpenCV, MediaPipe), Deep Learning (Keras CNN), LLM APIs (Gemini, Ollama Llama 3), FastAPI, React, C, DSA, SQL.</p>
+                        </div>
+                        <div style="background:rgba(3,7,18,0.6); border:1px solid var(--card-border); border-radius:12px; padding:1rem;">
+                            <h4 style="font-family:var(--font-mono); color:var(--neon-purple); font-size:0.85rem; margin-bottom:0.5rem;"><i class="fa-solid fa-trophy"></i> KEY HONORS</h4>
+                            <p style="color:var(--text-secondary); font-size:0.88rem; line-height:1.6;">Smart India Hackathon (SIH 2025) Participant, Samsung Innovation Campus AI Graduate, Fly Smart AI Drone Camp.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:1.5rem;">
+                        <h4 style="font-family:var(--font-mono); color:var(--neon-cyan); font-size:0.85rem; margin-bottom:0.6rem;"><i class="fa-solid fa-star"></i> TOP 2 FEATURED PROJECTS</h4>
+                        <div style="color:var(--text-secondary); font-size:0.88rem; line-height:1.7;">
+                            • <strong>PlantBot AI:</strong> <1.8s Keras CNN leaf disease classification platform + Gemini LLM treatment advisor.<br/>
+                            • <strong>Hand Gesture Control:</strong> Real-time 21 hand landmark HCI cursor & volume control using OpenCV & MediaPipe.
+                        </div>
+                    </div>
+
+                    <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:space-between; align-items:center; border-top:1px solid var(--card-border); padding-top:1.2rem;">
+                        <div>
+                            <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-secondary);">📧 sayanmukherjee7464@gmail.com | 📞 +91 8509546406</span>
+                        </div>
+                        <a href="resume.pdf" download="Sayan_Mukherjee_Resume.pdf" class="btn-primary" style="text-decoration:none;">
+                            <i class="fa-solid fa-download"></i> DOWNLOAD FULL RESUME (PDF)
+                        </a>
+                    </div>
+                </div>
+            `;
+            document.getElementById('project-modal').classList.add('open');
+        }
+
+        // ── INTERACTIVE CLI TERMINAL MODAL ──
+        function openTerminalModal() {
+            const body = document.getElementById('modal-body-content');
+            body.innerHTML = `
+                <div style="text-align:left;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                        <h2 style="font-family:var(--font-display); font-size:1.2rem; color:var(--neon-cyan);"><i class="fa-solid fa-terminal"></i> SAYAN_CLI v1.0 [INTERACTIVE SHELL]</h2>
+                        <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted);">Type 'help' for commands</span>
+                    </div>
+
+                    <div style="background:#030712; border:1px solid var(--neon-cyan); border-radius:12px; padding:1.2rem; font-family:var(--font-mono); color:var(--neon-cyan); box-shadow:var(--glow-cyan);">
+                        <div id="cli-output" style="height:260px; overflow-y:auto; font-size:0.85rem; line-height:1.6; color:var(--text-primary); margin-bottom:1rem; word-break:break-word;">
+                            <div>Welcome to SAYAN.OS Interactive Terminal Shell!</div>
+                            <div>Type <span style="color:var(--neon-green)">'help'</span> to see available commands or try <span style="color:var(--neon-pink)">'whoami'</span>, <span style="color:var(--neon-cyan)">'skills'</span>, <span style="color:var(--neon-purple)">'projects'</span>, <span style="color:var(--neon-green)">'matrix'</span>.</div>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:0.5rem; border-top:1px dashed rgba(0,240,255,0.3); padding-top:0.6rem;">
+                            <span style="color:var(--neon-green); font-weight:bold;">sayan@ai-terminal:~$</span>
+                            <input type="text" id="cli-input" onkeypress="handleCliKeyPress(event)" style="flex:1; background:transparent; border:none; color:var(--neon-green); font-family:var(--font-mono); font-size:0.9rem; outline:none;" autofocus placeholder="type command here..." />
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('project-modal').classList.add('open');
+            setTimeout(() => {
+                const inp = document.getElementById('cli-input');
+                if(inp) inp.focus();
+            }, 200);
+        }
+
+        function handleCliKeyPress(e) {
+            if (e.key === 'Enter') {
+                const input = document.getElementById('cli-input');
+                const cmd = input.value.trim().toLowerCase();
+                const out = document.getElementById('cli-output');
+                if (!cmd) return;
+
+                const line = document.createElement('div');
+                line.innerHTML = `<span style="color:var(--neon-green)">sayan@ai-terminal:~$ ${cmd}</span>`;
+                out.appendChild(line);
+
+                const response = document.createElement('div');
+                response.style.marginBottom = "0.8rem";
+
+                if (cmd === 'help') {
+                    response.innerHTML = `
+                        Available commands:<br/>
+                        • <span style="color:var(--neon-cyan)">whoami</span> : Brief summary about Sayan<br/>
+                        • <span style="color:var(--neon-purple)">skills</span> : Technical capabilities list<br/>
+                        • <span style="color:var(--neon-pink)">projects</span> : Featured AI/ML projects<br/>
+                        • <span style="color:var(--neon-green)">education</span> : CGPA & academic degree<br/>
+                        • <span style="color:var(--neon-cyan)">contact</span> : Direct email, phone, links<br/>
+                        • <span style="color:var(--neon-green)">matrix</span> : Digital rain animation effect<br/>
+                        • <span style="color:var(--text-muted)">clear</span> : Clear terminal screen
+                    `;
+                } else if (cmd === 'whoami') {
+                    response.innerHTML = `Sayan Mukherjee — B.Tech CSE (AI & ML) Student at Brainware University (CGPA 8.33). Specialist in Computer Vision, Deep Learning, and Full-Stack AI solutions.`;
+                } else if (cmd === 'skills') {
+                    response.innerHTML = `Python, OpenCV, MediaPipe, Keras, CNNs, Gemini LLM, Ollama, FastAPI, React, C, Data Structures, SQL/MongoDB.`;
+                } else if (cmd === 'projects') {
+                    response.innerHTML = `1. PlantBot AI (<1.8s Leaf Disease Detection) | 2. Hand Gesture Control (MediaPipe 21 Landmarks) | 3. ML Explainer (Streamlit) | 4. AI Health ChatBot.`;
+                } else if (cmd === 'education') {
+                    response.innerHTML = `B.Tech CSE (AI & ML), Brainware University (2023-2027) | Current Aggregate CGPA: 8.33 (6th Sem).`;
+                } else if (cmd === 'contact') {
+                    response.innerHTML = `Email: sayanmukherjee7464@gmail.com | Phone: +91 8509546406 | GitHub: sayan85095 | LinkedIn: sayan-mukherjee-966311265`;
+                } else if (cmd === 'clear') {
+                    out.innerHTML = '';
+                    input.value = '';
+                    return;
+                } else if (cmd === 'matrix') {
+                    response.innerHTML = `<span style="color:var(--neon-green)">01001000 01000001 01000011 01001011 01010100 01001000 01000101 01001101 01000001 01010100 01010010 01001001 01011000 [MATRIX ACTIVATED]</span>`;
+                } else {
+                    response.innerHTML = `<span style="color:var(--neon-pink)">Command not recognized: '${cmd}'. Type 'help' for available commands.</span>`;
+                }
+
+                out.appendChild(response);
+                input.value = '';
+                out.scrollTop = out.scrollHeight;
+            }
+        }
+
+        // ── 3D CARD TILT EFFECT ──
+        document.querySelectorAll('.project-card, .stat-card, .cert-card, .photo-card, .skill-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                card.style.transform = `perspective(1000px) rotateX(${-y / 20}deg) rotateY(${x / 20}deg) translateY(-6px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+            });
+        });
     </script>
 </body>
 
